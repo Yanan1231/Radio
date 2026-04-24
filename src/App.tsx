@@ -59,7 +59,6 @@ export default function App() {
       {/* Title */}
       <div className="text-center">
         <h1 className="text-2xl font-black tracking-tight text-white">Give Me Some Music</h1>
-        <p className="text-sm text-white/40 font-bold mt-0.5 tracking-widest uppercase">— By Nebula —</p>
       </div>
 
       {/* Vinyl player */}
@@ -179,6 +178,9 @@ export default function App() {
           ? `✨ ${playlist.length} stations matched "${activeMood}"`
           : `${display.emoji}  ${display.name}`}
       </p>
+
+      {/* Copyright */}
+      <p className="text-xs text-white/25 tracking-widest">© Yanan & Claude</p>
 
     </div>
   )

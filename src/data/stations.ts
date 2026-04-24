@@ -1,6 +1,7 @@
 import type { Station } from '../types'
 
 export const stations: Station[] = [
+  // ── SomaFM ────────────────────────────────────────────────────────
   {
     id: 'groove-salad',
     name: 'Groove Salad',
@@ -10,6 +11,7 @@ export const stations: Station[] = [
     color: 'from-sky-100 to-blue-200',
     accentColor: '#38BDF8',
     emoji: '🌿',
+    source: 'somafm',
   },
   {
     id: 'space-station',
@@ -20,6 +22,7 @@ export const stations: Station[] = [
     color: 'from-blue-100 to-indigo-200',
     accentColor: '#3B82F6',
     emoji: '🚀',
+    source: 'somafm',
   },
   {
     id: 'deep-space',
@@ -30,6 +33,7 @@ export const stations: Station[] = [
     color: 'from-indigo-100 to-blue-200',
     accentColor: '#6366F1',
     emoji: '🌌',
+    source: 'somafm',
   },
   {
     id: 'drone-zone',
@@ -40,6 +44,7 @@ export const stations: Station[] = [
     color: 'from-slate-100 to-sky-200',
     accentColor: '#7DD3FC',
     emoji: '🎵',
+    source: 'somafm',
   },
   {
     id: 'lush',
@@ -50,6 +55,7 @@ export const stations: Station[] = [
     color: 'from-cyan-100 to-sky-200',
     accentColor: '#0EA5E9',
     emoji: '🌸',
+    source: 'somafm',
   },
   {
     id: 'suburbs-of-goa',
@@ -60,6 +66,7 @@ export const stations: Station[] = [
     color: 'from-sky-100 to-teal-200',
     accentColor: '#0284C7',
     emoji: '🌍',
+    source: 'somafm',
   },
   {
     id: 'beat-blender',
@@ -70,6 +77,7 @@ export const stations: Station[] = [
     color: 'from-sky-100 to-cyan-200',
     accentColor: '#22D3EE',
     emoji: '🎛️',
+    source: 'somafm',
   },
   {
     id: 'fluid',
@@ -80,5 +88,98 @@ export const stations: Station[] = [
     color: 'from-blue-100 to-sky-200',
     accentColor: '#1D4ED8',
     emoji: '💧',
+    source: 'somafm',
+  },
+
+  // ── Radio Paradise ────────────────────────────────────────────────
+  {
+    id: 'rp-main',
+    name: 'RP Main Mix',
+    tagline: 'An eclectic mix of rock, world, electronica, and more',
+    genre: 'Eclectic / Mixed',
+    streamUrl: 'https://stream.radioparadise.com/mp3-128',
+    color: 'from-violet-100 to-blue-200',
+    accentColor: '#7C3AED',
+    emoji: '🎸',
+    source: 'radioparadise',
+  },
+  {
+    id: 'rp-mellow',
+    name: 'RP Mellow Mix',
+    tagline: 'Calm, beautiful music — a quieter corner of Radio Paradise',
+    genre: 'Mellow / Chill',
+    streamUrl: 'https://stream.radioparadise.com/mellow-128',
+    color: 'from-sky-100 to-violet-200',
+    accentColor: '#06B6D4',
+    emoji: '🌙',
+    source: 'radioparadise',
+  },
+  {
+    id: 'rp-rock',
+    name: 'RP Rock Mix',
+    tagline: 'Harder-edged rock and alternative from Radio Paradise',
+    genre: 'Rock / Alternative',
+    streamUrl: 'https://stream.radioparadise.com/rock-128',
+    color: 'from-blue-100 to-indigo-200',
+    accentColor: '#1E40AF',
+    emoji: '🎵',
+    source: 'radioparadise',
+  },
+  {
+    id: 'rp-world',
+    name: 'RP World / Etc',
+    tagline: 'Global sounds, jazz, classical, folk, and the unexpected',
+    genre: 'World / Jazz / Folk',
+    streamUrl: 'https://stream.radioparadise.com/world-etc-128',
+    color: 'from-teal-100 to-sky-200',
+    accentColor: '#0891B2',
+    emoji: '🌐',
+    source: 'radioparadise',
+  },
+
+  // ── Global Stations ───────────────────────────────────────────────
+  {
+    id: 'kexp',
+    name: 'KEXP Seattle',
+    tagline: 'Where the music matters — independent & alternative radio',
+    genre: 'Indie / Alternative',
+    streamUrl: 'https://live-aacplus-64.kexp.org/kexp64.aac',
+    color: 'from-green-100 to-teal-200',
+    accentColor: '#059669',
+    emoji: '🎙️',
+    source: 'global',
+  },
+  {
+    id: 'fip',
+    name: 'FIP Radio',
+    tagline: 'The most eclectic radio in France — jazz, pop, world, classical',
+    genre: 'Eclectic / French',
+    streamUrl: 'https://icecast.radiofrance.fr/fip-midfi.mp3',
+    color: 'from-blue-100 to-violet-200',
+    accentColor: '#4F46E5',
+    emoji: '🥐',
+    source: 'global',
+  },
+  {
+    id: 'swiss-jazz',
+    name: 'Radio Swiss Jazz',
+    tagline: 'Pure jazz — Swiss public radio, no ads, no talk',
+    genre: 'Jazz',
+    streamUrl: 'https://stream.srg-ssr.ch/m/rsj/mp3_128',
+    color: 'from-amber-100 to-sky-200',
+    accentColor: '#D97706',
+    emoji: '🎷',
+    source: 'global',
+  },
+  {
+    id: 'nts-1',
+    name: 'NTS Radio 1',
+    tagline: 'London-based independent radio broadcasting innovative music',
+    genre: 'Experimental / Electronic',
+    streamUrl: 'https://stream-relay-geo.ntslive.net/stream',
+    color: 'from-rose-100 to-blue-200',
+    accentColor: '#E11D48',
+    emoji: '📡',
+    source: 'global',
   },
 ]

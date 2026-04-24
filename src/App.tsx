@@ -1,14 +1,29 @@
+import { useState } from 'react'
 import { stations } from './data/stations'
+import { sources } from './data/sources'
 import { useAudioPlayer } from './hooks/useAudioPlayer'
 import { NowPlaying } from './components/NowPlaying'
 import { StationCard } from './components/StationCard'
 import { PlayerControls } from './components/PlayerControls'
+import { SourceDropdown } from './components/SourceDropdown'
 import type { Station } from './types'
 
 export default function App() {
   const { currentStation, status, volume, isMuted, play, stop, toggle, setVolume, toggleMute } = useAudioPlayer()
+  const [selectedSourceId, setSelectedSourceId] = useState('somafm')
+
+  const filteredStations = stations.filter(s => s.source === selectedSourceId)
+  const selectedSource = sources.find(s => s.id === selectedSourceId)!
 
   const handleSelect = (station: Station) => toggle(station)
+
+  const handleSourceChange = (sourceId: string) => {
+    setSelectedSourceId(sourceId)
+    // Stop playback if the active station belongs to a different source
+    if (currentStation && currentStation.source !== sourceId) {
+      stop()
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-amber-50">
@@ -63,13 +78,31 @@ export default function App() {
           />
         </div>
 
-        {/* Station List */}
+        {/* Source picker + Station list */}
         <div>
           <h2 className="text-sm font-extrabold text-blue-400 uppercase tracking-widest mb-3 px-1">
-            ♪ Stations
+            ♪ Music Source
           </h2>
+
+          <div className="mb-4">
+            <SourceDropdown
+              sources={sources}
+              selectedId={selectedSourceId}
+              onChange={handleSourceChange}
+            />
+          </div>
+
+          <div className="flex items-center justify-between mb-3 px-1">
+            <span className="text-sm font-extrabold text-blue-400 uppercase tracking-widest">
+              Stations
+            </span>
+            <span className="text-xs font-bold text-blue-300 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
+              {filteredStations.length} available
+            </span>
+          </div>
+
           <div className="space-y-2.5">
-            {stations.map(station => (
+            {filteredStations.map(station => (
               <StationCard
                 key={station.id}
                 station={station}
@@ -84,7 +117,7 @@ export default function App() {
         {/* Footer */}
         <footer className="mt-10 text-center">
           <p className="text-xs text-blue-300 font-semibold">
-            Streaming via SomaFM · Free internet radio 🎶
+            {selectedSource.emoji} {selectedSource.name} · Free internet radio 🎶
           </p>
         </footer>
       </div>

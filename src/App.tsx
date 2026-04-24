@@ -3,6 +3,7 @@ import { stations } from './data/stations'
 import { matchStationsByMood } from './utils/moodMatcher'
 import { useAudioPlayer } from './hooks/useAudioPlayer'
 import { useNowPlaying } from './hooks/useNowPlaying'
+import { GalaxyBackground } from './components/GalaxyBackground'
 import { VinylRecord } from './components/VinylRecord'
 import { Tonearm } from './components/Tonearm'
 import { MoodInput } from './components/MoodInput'
@@ -52,7 +53,8 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white flex flex-col items-center justify-center px-6 py-10 gap-8">
+    <div className="min-h-screen bg-[#030308] text-white flex flex-col items-center justify-center px-6 py-10 gap-8" style={{ position: 'relative', zIndex: 1 }}>
+      <GalaxyBackground />
 
       {/* Title */}
       <div className="text-center">

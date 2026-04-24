@@ -58,8 +58,8 @@ export default function App() {
 
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-2xl font-black tracking-tight text-white">Give me some music</h1>
-        <p className="text-sm text-white/30 font-semibold mt-0.5 tracking-widest uppercase">By Nebula</p>
+        <h1 className="text-2xl font-black tracking-tight text-white">Give Me Some Music</h1>
+        <p className="text-sm text-white/40 font-bold mt-0.5 tracking-widest uppercase">— By Nebula —</p>
       </div>
 
       {/* Vinyl player */}

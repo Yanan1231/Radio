@@ -15,6 +15,7 @@ export interface Station {
   accentColor: string
   emoji: string
   source: string
+  moodTags: string[]
 }
 
 export type PlayerStatus = 'idle' | 'loading' | 'playing' | 'paused' | 'error'

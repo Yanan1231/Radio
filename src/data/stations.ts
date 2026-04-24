@@ -12,6 +12,7 @@ export const stations: Station[] = [
     accentColor: '#38BDF8',
     emoji: '🌿',
     source: 'somafm',
+    moodTags: ['chill', 'relax', 'ambient', 'downtempo', 'focus', 'study', 'work', 'afternoon', 'groovy', 'peaceful'],
   },
   {
     id: 'space-station',
@@ -23,6 +24,7 @@ export const stations: Station[] = [
     accentColor: '#3B82F6',
     emoji: '🚀',
     source: 'somafm',
+    moodTags: ['space', 'ambient', 'mysterious', 'focus', 'study', 'deep', 'experimental', 'night', 'cosmic'],
   },
   {
     id: 'deep-space',
@@ -34,6 +36,7 @@ export const stations: Station[] = [
     accentColor: '#6366F1',
     emoji: '🌌',
     source: 'somafm',
+    moodTags: ['space', 'deep', 'ambient', 'experimental', 'meditation', 'focus', 'mysterious', 'dark', 'cosmic'],
   },
   {
     id: 'drone-zone',
@@ -45,6 +48,7 @@ export const stations: Station[] = [
     accentColor: '#7DD3FC',
     emoji: '🎵',
     source: 'somafm',
+    moodTags: ['sleep', 'drone', 'calm', 'meditation', 'ambient', 'relax', 'soft', 'peaceful', 'dark', 'focus'],
   },
   {
     id: 'lush',
@@ -56,6 +60,7 @@ export const stations: Station[] = [
     accentColor: '#0EA5E9',
     emoji: '🌸',
     source: 'somafm',
+    moodTags: ['romantic', 'vocal', 'emotional', 'mellow', 'feminine', 'beautiful', 'chill', 'sad', 'lonely', 'soft'],
   },
   {
     id: 'suburbs-of-goa',
@@ -67,6 +72,7 @@ export const stations: Station[] = [
     accentColor: '#0284C7',
     emoji: '🌍',
     source: 'somafm',
+    moodTags: ['world', 'cultural', 'fusion', 'ethnic', 'energetic', 'dance', 'creative', 'upbeat', 'global', 'happy'],
   },
   {
     id: 'beat-blender',
@@ -78,6 +84,7 @@ export const stations: Station[] = [
     accentColor: '#22D3EE',
     emoji: '🎛️',
     source: 'somafm',
+    moodTags: ['party', 'dance', 'night', 'electronic', 'house', 'techno', 'energetic', 'cool', 'dark', 'intense'],
   },
   {
     id: 'fluid',
@@ -89,6 +96,7 @@ export const stations: Station[] = [
     accentColor: '#1D4ED8',
     emoji: '💧',
     source: 'somafm',
+    moodTags: ['energetic', 'drive', 'dnb', 'intense', 'night', 'electronic', 'dance', 'fast', 'upbeat'],
   },
 
   // ── Radio Paradise ────────────────────────────────────────────────
@@ -102,6 +110,7 @@ export const stations: Station[] = [
     accentColor: '#7C3AED',
     emoji: '🎸',
     source: 'radioparadise',
+    moodTags: ['eclectic', 'varied', 'happy', 'drive', 'upbeat', 'creative', 'bored', 'energetic', 'mixed', 'weekend'],
   },
   {
     id: 'rp-mellow',
@@ -113,6 +122,7 @@ export const stations: Station[] = [
     accentColor: '#06B6D4',
     emoji: '🌙',
     source: 'radioparadise',
+    moodTags: ['mellow', 'calm', 'chill', 'morning', 'peaceful', 'soft', 'relax', 'sad', 'quiet', 'rainy'],
   },
   {
     id: 'rp-rock',
@@ -124,6 +134,7 @@ export const stations: Station[] = [
     accentColor: '#1E40AF',
     emoji: '🎵',
     source: 'radioparadise',
+    moodTags: ['rock', 'energetic', 'drive', 'alternative', 'angry', 'intense', 'upbeat', 'powerful'],
   },
   {
     id: 'rp-world',
@@ -135,6 +146,7 @@ export const stations: Station[] = [
     accentColor: '#0891B2',
     emoji: '🌐',
     source: 'radioparadise',
+    moodTags: ['world', 'jazz', 'classical', 'folk', 'creative', 'morning', 'coffee', 'sophisticated', 'cultural'],
   },
 
   // ── Global Stations ───────────────────────────────────────────────
@@ -148,6 +160,7 @@ export const stations: Station[] = [
     accentColor: '#059669',
     emoji: '🎙️',
     source: 'global',
+    moodTags: ['indie', 'alternative', 'cool', 'creative', 'drive', 'eclectic', 'bored', 'excited', 'weekend'],
   },
   {
     id: 'fip',
@@ -159,6 +172,7 @@ export const stations: Station[] = [
     accentColor: '#4F46E5',
     emoji: '🥐',
     source: 'global',
+    moodTags: ['french', 'romantic', 'coffee', 'morning', 'sophisticated', 'eclectic', 'jazz', 'creative', 'cozy'],
   },
   {
     id: 'swiss-jazz',
@@ -170,6 +184,7 @@ export const stations: Station[] = [
     accentColor: '#D97706',
     emoji: '🎷',
     source: 'global',
+    moodTags: ['jazz', 'sophisticated', 'coffee', 'morning', 'romantic', 'calm', 'night', 'cool', 'cozy', 'study'],
   },
   {
     id: 'nts-1',
@@ -181,5 +196,6 @@ export const stations: Station[] = [
     accentColor: '#E11D48',
     emoji: '📡',
     source: 'global',
+    moodTags: ['experimental', 'electronic', 'underground', 'creative', 'night', 'cool', 'dark', 'bored', 'indie'],
   },
 ]

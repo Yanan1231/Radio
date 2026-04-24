@@ -1,28 +1,52 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { stations } from './data/stations'
 import { sources } from './data/sources'
+import { matchStationsByMood } from './utils/moodMatcher'
 import { useAudioPlayer } from './hooks/useAudioPlayer'
 import { NowPlaying } from './components/NowPlaying'
 import { StationCard } from './components/StationCard'
 import { PlayerControls } from './components/PlayerControls'
 import { SourceDropdown } from './components/SourceDropdown'
+import { MoodSearch } from './components/MoodSearch'
 import type { Station } from './types'
 
 export default function App() {
   const { currentStation, status, volume, isMuted, play, stop, toggle, setVolume, toggleMute } = useAudioPlayer()
   const [selectedSourceId, setSelectedSourceId] = useState('somafm')
+  const [activeMood, setActiveMood] = useState('')
+  const [isSearching, setIsSearching] = useState(false)
+  const [moodPlaylist, setMoodPlaylist] = useState<Station[]>([])
 
-  const filteredStations = stations.filter(s => s.source === selectedSourceId)
+  // When mood is active show mood playlist; otherwise show source-filtered list
+  const displayedStations = activeMood
+    ? moodPlaylist
+    : stations.filter(s => s.source === selectedSourceId)
+
   const selectedSource = sources.find(s => s.id === selectedSourceId)!
 
   const handleSelect = (station: Station) => toggle(station)
 
   const handleSourceChange = (sourceId: string) => {
     setSelectedSourceId(sourceId)
-    // Stop playback if the active station belongs to a different source
-    if (currentStation && currentStation.source !== sourceId) {
-      stop()
-    }
+    if (currentStation && currentStation.source !== sourceId) stop()
+  }
+
+  const handleMoodSearch = useCallback((mood: string) => {
+    setIsSearching(true)
+    setActiveMood(mood)
+    // Brief delay for the "searching" feel, then reveal results & auto-play
+    setTimeout(() => {
+      const results = matchStationsByMood(stations, mood)
+      setMoodPlaylist(results)
+      setIsSearching(false)
+      if (results.length > 0) play(results[0])
+    }, 700)
+  }, [play])
+
+  const handleClearMood = () => {
+    setActiveMood('')
+    setMoodPlaylist([])
+    setIsSearching(false)
   }
 
   return (
@@ -65,7 +89,7 @@ export default function App() {
         </div>
 
         {/* Player Controls */}
-        <div className="mb-7">
+        <div className="mb-6">
           <PlayerControls
             station={currentStation}
             status={status}
@@ -78,31 +102,52 @@ export default function App() {
           />
         </div>
 
-        {/* Source picker + Station list */}
-        <div>
-          <h2 className="text-sm font-extrabold text-blue-400 uppercase tracking-widest mb-3 px-1">
-            ♪ Music Source
-          </h2>
+        {/* Mood search */}
+        <div className="mb-6">
+          <MoodSearch
+            activeMood={activeMood}
+            isSearching={isSearching}
+            onSearch={handleMoodSearch}
+            onClear={handleClearMood}
+          />
+        </div>
 
+        {/* Source picker — hidden while mood is active */}
+        {!activeMood && (
           <div className="mb-4">
+            <h2 className="text-sm font-extrabold text-blue-400 uppercase tracking-widest mb-3 px-1">
+              ♪ Music Source
+            </h2>
             <SourceDropdown
               sources={sources}
               selectedId={selectedSourceId}
               onChange={handleSourceChange}
             />
           </div>
+        )}
 
+        {/* Station list */}
+        <div>
           <div className="flex items-center justify-between mb-3 px-1">
             <span className="text-sm font-extrabold text-blue-400 uppercase tracking-widest">
-              Stations
+              {activeMood ? '✨ Surprise Picks' : 'Stations'}
             </span>
             <span className="text-xs font-bold text-blue-300 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">
-              {filteredStations.length} available
+              {displayedStations.length} {activeMood ? 'matched' : 'available'}
             </span>
           </div>
 
+          {/* Empty mood results */}
+          {activeMood && !isSearching && moodPlaylist.length === 0 && (
+            <div className="bg-white rounded-3xl border-2 border-blue-200 cartoon-shadow p-6 text-center">
+              <div className="text-4xl mb-2">🤔</div>
+              <p className="text-sm font-bold text-blue-700">No exact match found</p>
+              <p className="text-xs font-semibold text-blue-400 mt-1">Try a different mood!</p>
+            </div>
+          )}
+
           <div className="space-y-2.5">
-            {filteredStations.map(station => (
+            {displayedStations.map(station => (
               <StationCard
                 key={station.id}
                 station={station}
@@ -112,12 +157,21 @@ export default function App() {
               />
             ))}
           </div>
+
+          {/* Footer note for mood playlist */}
+          {activeMood && !isSearching && moodPlaylist.length > 0 && (
+            <p className="text-xs text-center text-blue-300 font-semibold mt-4">
+              🎲 Top pick is auto-playing · click any card to switch
+            </p>
+          )}
         </div>
 
         {/* Footer */}
         <footer className="mt-10 text-center">
           <p className="text-xs text-blue-300 font-semibold">
-            {selectedSource.emoji} {selectedSource.name} · Free internet radio 🎶
+            {activeMood
+              ? `✨ Mood playlist · ${moodPlaylist.length} stations`
+              : `${selectedSource.emoji} ${selectedSource.name} · Free internet radio 🎶`}
           </p>
         </footer>
       </div>

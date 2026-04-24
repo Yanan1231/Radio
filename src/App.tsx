@@ -67,7 +67,7 @@ export default function App() {
             📻
           </div>
           <div>
-            <h1 className="text-xl font-extrabold text-blue-900 leading-tight">Radio Station</h1>
+            <h1 className="text-xl font-extrabold text-blue-900 leading-tight">Give me some music - By Nebula</h1>
             <p className="text-xs text-blue-400 font-semibold">internet radio, always on ✨</p>
           </div>
           <div className="ml-auto flex items-center gap-2 bg-blue-50 rounded-full px-3 py-1.5 border border-blue-200">

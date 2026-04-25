@@ -13,10 +13,4 @@ export const sources: Source[] = [
     emoji: '🏝️',
     description: 'Eclectic freeform radio, listener supported',
   },
-  {
-    id: 'global',
-    name: 'Global Stations',
-    emoji: '🌍',
-    description: 'Public & independent stations from around the world',
-  },
 ]

@@ -21,7 +21,7 @@ export default function App() {
 
   const isPlaying = status === 'playing'
   const isLoading = status === 'loading'
-  // Show the currently tuned station, or whichever is highlighted in the list
+  const isError   = status === 'error'
   const display = currentStation ?? playlist[stationIdx]
 
   const navigate = (dir: 1 | -1) => {
@@ -53,8 +53,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#030308] text-white flex flex-col items-center justify-center px-6 py-10 gap-8" style={{ position: 'relative', zIndex: 1 }}>
-      <GalaxyBackground />
+    <>
+    <GalaxyBackground />
+    <div className="min-h-screen text-white flex flex-col items-center justify-center px-6 py-10 gap-8" style={{ position: 'relative', zIndex: 1 }}>
 
       {/* Title */}
       <div className="text-center">
@@ -74,7 +75,9 @@ export default function App() {
 
       {/* Track / station info */}
       <div className="text-center space-y-1 min-h-[52px]">
-        {trackInfo ? (
+        {isError ? (
+          <p className="text-sm text-red-400/80">Stream unavailable — try another station</p>
+        ) : trackInfo ? (
           <>
             <p className="text-base font-bold text-white leading-tight">{trackInfo.artist}</p>
             <p className="text-sm text-white/50 leading-tight">{trackInfo.title}</p>
@@ -183,5 +186,6 @@ export default function App() {
       <p className="text-xs text-white/25 tracking-widest">© Yanan & Claude</p>
 
     </div>
+    </>
   )
 }

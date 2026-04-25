@@ -45,10 +45,10 @@ export function useAudioPlayer() {
     if (currentStation?.id === station.id && status === 'playing') return
 
     audio.pause()
+    audio.src = ''
     audio.src = station.streamUrl
     setCurrentStation(station)
     setStatus('loading')
-    audio.load()
     audio.play().catch(() => setStatus('error'))
   }, [currentStation, status])
 

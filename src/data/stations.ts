@@ -1,13 +1,47 @@
 import type { Station } from '../types'
 
 export const stations: Station[] = [
-  // ── SomaFM — 25+ years of reliable internet radio, no geo-restrictions ──
+  // ── Radio Paradise first — verified working, listener-supported ───────
+  {
+    id: 'rp-mellow',
+    name: 'RP Mellow Mix',
+    tagline: 'Calm, beautiful music — a quieter corner of Radio Paradise',
+    genre: 'Mellow / Chill',
+    streamUrl: 'https://stream.radioparadise.com/mellow-128',
+    color: 'from-sky-100 to-violet-200',
+    accentColor: '#06B6D4',
+    emoji: '🌙',
+    source: 'radioparadise',
+    moodTags: [
+      'mellow', 'calm', 'chill', 'morning', 'peaceful', 'soft', 'relax',
+      'sad', 'quiet', 'rainy', 'sleep', 'coffee', 'cozy', 'meditation',
+      'study', 'focus', 'romantic', 'beautiful',
+    ],
+  },
+  {
+    id: 'rp-main',
+    name: 'RP Main Mix',
+    tagline: 'An eclectic mix of rock, world, electronica, and more',
+    genre: 'Eclectic / Mixed',
+    streamUrl: 'https://stream.radioparadise.com/mp3-128',
+    color: 'from-violet-100 to-blue-200',
+    accentColor: '#7C3AED',
+    emoji: '🎸',
+    source: 'radioparadise',
+    moodTags: [
+      'eclectic', 'varied', 'happy', 'drive', 'upbeat', 'creative',
+      'bored', 'energetic', 'mixed', 'weekend', 'party', 'jazz',
+      'night', 'excited', 'groovy',
+    ],
+  },
+
+  // ── SomaFM — ice1 server (redundant to ice2) ─────────────────────────
   {
     id: 'groove-salad',
     name: 'Groove Salad',
     tagline: 'A nicely chilled plate of ambient/downtempo beats and grooves',
     genre: 'Ambient / Downtempo',
-    streamUrl: 'https://ice2.somafm.com/groovesalad-128-mp3',
+    streamUrl: 'https://ice1.somafm.com/groovesalad-128-mp3',
     color: 'from-sky-100 to-blue-200',
     accentColor: '#38BDF8',
     emoji: '🌿',
@@ -19,7 +53,7 @@ export const stations: Station[] = [
     name: 'Drone Zone',
     tagline: 'Served best chilled, safe with most medications',
     genre: 'Drone / Ambient',
-    streamUrl: 'https://ice2.somafm.com/dronezone-128-mp3',
+    streamUrl: 'https://ice1.somafm.com/dronezone-128-mp3',
     color: 'from-slate-100 to-sky-200',
     accentColor: '#7DD3FC',
     emoji: '🎵',
@@ -31,37 +65,11 @@ export const stations: Station[] = [
     name: 'Space Station Soma',
     tagline: 'Tune in, turn on, space out',
     genre: 'Space / Ambient',
-    streamUrl: 'https://ice2.somafm.com/spacestation-128-mp3',
+    streamUrl: 'https://ice1.somafm.com/spacestation-128-mp3',
     color: 'from-blue-100 to-indigo-200',
     accentColor: '#3B82F6',
     emoji: '🚀',
     source: 'somafm',
     moodTags: ['space', 'ambient', 'mysterious', 'focus', 'study', 'deep', 'experimental', 'night', 'cosmic'],
-  },
-
-  // ── Radio Paradise — listener-supported, very stable MP3 streams ──────
-  {
-    id: 'rp-main',
-    name: 'RP Main Mix',
-    tagline: 'An eclectic mix of rock, world, electronica, and more',
-    genre: 'Eclectic / Mixed',
-    streamUrl: 'https://stream.radioparadise.com/mp3-128',
-    color: 'from-violet-100 to-blue-200',
-    accentColor: '#7C3AED',
-    emoji: '🎸',
-    source: 'radioparadise',
-    moodTags: ['eclectic', 'varied', 'happy', 'drive', 'upbeat', 'creative', 'bored', 'energetic', 'mixed', 'weekend'],
-  },
-  {
-    id: 'rp-mellow',
-    name: 'RP Mellow Mix',
-    tagline: 'Calm, beautiful music — a quieter corner of Radio Paradise',
-    genre: 'Mellow / Chill',
-    streamUrl: 'https://stream.radioparadise.com/mellow-128',
-    color: 'from-sky-100 to-violet-200',
-    accentColor: '#06B6D4',
-    emoji: '🌙',
-    source: 'radioparadise',
-    moodTags: ['mellow', 'calm', 'chill', 'morning', 'peaceful', 'soft', 'relax', 'sad', 'quiet', 'rainy'],
   },
 ]

@@ -48,13 +48,13 @@ export function MoodInput({ activeMood, isSearching, onSearch, onClear }: Props)
         )}
       </div>
 
-      {/* Mood pills — horizontally scrollable */}
-      <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+      {/* Mood pills — wrap so all are visible without needing to scroll */}
+      <div className="flex flex-wrap gap-2">
         {MOOD_SUGGESTIONS.map(({ label, value: v }) => (
           <button
             key={v}
             onClick={() => submit(v)}
-            className={`flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all ${
+            className={`text-xs px-3 py-1.5 rounded-full border transition-all ${
               activeMood === v
                 ? 'bg-white text-gray-900 border-white font-bold'
                 : 'bg-white/8 text-white/50 border-white/15 hover:bg-white/18 hover:text-white'
